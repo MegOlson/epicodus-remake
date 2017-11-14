@@ -1,0 +1,14 @@
+<h1>Chapters</h1>
+
+<% if @chapters %>
+  <ul>
+    <% @chapters.each do |chapter| %>
+       <li> <%= link_to chapter.name, chapter_path(chapter) %> </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no chapters</p>
+<% end %>
+
+
+<p> <%= link_to "New Chapter", new_chapter_path %> </p>

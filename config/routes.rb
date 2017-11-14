@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root :to => 'sections#index'
+  root :to => 'chapters#index'
 
   resources :chapters do
     resources :sections

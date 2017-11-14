@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+
   def index
     @lessons = Lesson.all
   end
@@ -25,23 +26,26 @@ class LessonsController < ApplicationController
   end
 
   def edit
+    @section = Section.find(params[:section_id])
     @lesson = Lesson.find(params[:id])
   end
 
   def update
+    @section = Section.find(params[:section_id])
     @lesson = Lesson.find(params[:id])
     if @lesson.update(lesson_params)
       flash[:notice] = "Your lesson as been updated!"
-      redirect_to section_lessons_path
+      redirect_to section_path(@section)
     else
       render :edit
     end
   end
 
   def destroy
+    @section = Section.find(params[:section_id])
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
-    redirect_to sections_path
+    redirect_to section_path(@section)
   end
 
 private

@@ -1,6 +1,6 @@
-<%= render 'layouts/errors', :object => @section %>
+<%= render 'layouts/errors', :object => @chapter %>
 
-<%= form_for [@chapter, @section] do |f| %>
+<%= form_for @chapter do |f| %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control"%>

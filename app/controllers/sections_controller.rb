@@ -5,18 +5,21 @@ class SectionsController < ApplicationController
   end
 
   def show
+    # @chapter = Chapter.find(params[:chapter_id])
     @section = Section.find(params[:id])
   end
 
   def new
+    @chapter = Chapter.find(params[:chapter_id])
     @section = Section.new
   end
 
   def create
-    @section = Section.new(section_params)
+    @chapter = Chapter.find(params[:chapter_id])
+    @section = @chapter.sections.new(section_params)
     if @section.save
       flash[:notice] = "Section has been saved!"
-      redirect_to sections_path
+      redirect_to chapter_path(@chapter)
     else
       render :new
     end
@@ -30,7 +33,7 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     if @section.update(section_params)
       flash[:notice] = "Your section has been updated!"
-      redirect_to sections_path
+      redirect_to chapter_sections_path
     else
       render :edit
     end
@@ -39,12 +42,12 @@ class SectionsController < ApplicationController
   def destroy
     @section = Section.find(params[:id])
     @section.destroy
-    redirect_to sections_path
+    redirect_to chapters_path
   end
 
 private
   def section_params
-    params.require(:section).permit(:name)
+    params.require(:section).permit(:name, :chapter_id)
   end
 
 

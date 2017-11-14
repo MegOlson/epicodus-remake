@@ -1,8 +1,8 @@
 <h1> <%= @lesson.name %> </h1>
 
 <p> <%= @lesson.content %> </p>
-<%= link_to "Edit", edit_section_lesson_path(@lesson) %>
-<p><%= link_to "Delete", section_lesson_path(@lesson),
+<%= link_to "Edit", edit_section_lesson_path(@section, @lesson) %>
+<p><%= link_to "Delete", section_lesson_path(@section, @lesson),
                          :data => {:confirm => "You sure?",
                                    :method => "delete"} %></p>
 <p> <%= link_to "Next Lesson", section_lesson_path(@section, @lesson.next)  %> </p>
