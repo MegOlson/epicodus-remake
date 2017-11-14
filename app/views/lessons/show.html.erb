@@ -6,3 +6,4 @@
                          :data => {:confirm => "You sure?",
                                    :method => "delete"} %></p>
 <p> <%= link_to "All Lessons", lessons_path %> </p>
+<p> <%= link_to "Next Lesson", lesson_path(@lesson.next)  %> </p>
