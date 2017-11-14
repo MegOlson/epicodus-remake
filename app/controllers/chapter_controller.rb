@@ -1,0 +1,3 @@
+class ChapterController < ApplicationController
+  
+end
