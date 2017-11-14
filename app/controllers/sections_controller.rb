@@ -22,6 +22,20 @@ class SectionsController < ApplicationController
     end
   end
 
+  def edit
+    @section = Section.find(params[:id])
+  end
+
+  def update
+    @section = Section.find(params[:id])
+    if @section.update(section_params)
+      flash[:notice] = "Your section has been updated!"
+      redirect_to sections_path
+    else
+      render :edit
+    end
+  end
+
 private
   def section_params
     params.require(:section).permit(:name)

@@ -3,7 +3,7 @@
 <% if @sections %>
   <ul>
     <% @sections.each do |section| %>
-       <li> <%= section.name %> </li>
+       <li> <%= link_to section.name, section_path(section) %> </li>
     <% end %>
   </ul>
 <% else %>
