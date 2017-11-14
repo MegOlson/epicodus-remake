@@ -5,7 +5,6 @@ class SectionsController < ApplicationController
   end
 
   def show
-    # @chapter = Chapter.find(params[:chapter_id])
     @section = Section.find(params[:id])
   end
 

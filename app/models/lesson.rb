@@ -3,7 +3,7 @@ class Lesson < ActiveRecord::Base
   validates :number, uniqueness: true
   belongs_to :sections
   scope :in_section, -> (section_id){ where("section_id = ?", section_id) }
-
+  scope :ordered_by_number, -> { order(number: :asc) }
 
   def next
     lessons = Lesson.in_section(self.section_id)

@@ -1,8 +1,5 @@
 class LessonsController < ApplicationController
 
-  def index
-    @lessons = Lesson.all
-  end
 
   def show
     @section = Section.find(params[:section_id])
