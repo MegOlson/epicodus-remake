@@ -2,7 +2,7 @@
 
 <ul>
   <% @section.lessons.each do |lesson| %>
-    <li> <%= link_to lesson.name, lesson_path(lesson) %> </li>
+    <li> <%= link_to lesson.name, section_lesson_path(@section, lesson) %> </li>
   <% end %>
 </ul>
 
@@ -11,4 +11,4 @@
                          :data => {:confirm => "You sure?",
                                    :method => "delete"} %></p>
 
-<p> <%= link_to "All Lessons", sections_path %> </p>
+<p> <%= link_to "Add Lesson", new_section_lesson_path(@section) %> </p>
