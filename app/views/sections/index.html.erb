@@ -1,0 +1,11 @@
+<h1>Sections</h1>
+
+<% if @sections %>
+  <ul>
+    <% @sections.each do |section| %>
+       <li> <%= section.name %> </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no sections</p>
+<% end %>
