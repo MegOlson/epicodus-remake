@@ -1,0 +1,13 @@
+<h1>Lessons</h1>
+
+<% if @lessons %>
+  <ul>
+    <% @lessons.each do |lesson| %>
+      <li> <%= lesson.name %> </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no lessons logged.</p>
+<% end %>
+
+<p> <%= link_to "New Lesson", new_lesson_path %> </p>
