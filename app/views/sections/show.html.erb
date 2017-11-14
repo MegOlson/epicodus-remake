@@ -2,7 +2,7 @@
 
 <ul>
   <% @section.lessons.each do |lesson| %>
-    <li> <%= link_to lesson.name, section_lesson_path(@section, lesson) %> </li>
+    <li> <%= lesson.number %> | <%= link_to lesson.name, section_lesson_path(@section, lesson) %> </li>
   <% end %>
 </ul>
 
@@ -12,3 +12,4 @@
                                    :method => "delete"} %></p>
 
 <p> <%= link_to "Add Lesson", new_section_lesson_path(@section) %> </p>
+<p> <%= link_to "Back to All Sections", sections_path %> </p>
