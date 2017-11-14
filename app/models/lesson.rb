@@ -2,13 +2,16 @@ class Lesson < ActiveRecord::Base
   validates :name, :content, :number, :presence => true
   validates :number, uniqueness: true
   belongs_to :sections
+  scope :in_section, -> (section_id){ where("section_id = ?", section_id) }
+
 
   def next
-    lessons = Lesson.all
+    lessons = Lesson.in_section(self.section_id)
     lessons.each do |lesson|
-      if lesson.number == (self.number + 1) && (lesson.section_id == self.section_id)
+      if lesson.number == (self.number + 1)
         return lesson
       end
     end
   end
+
 end
