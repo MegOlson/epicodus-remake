@@ -1,0 +1,14 @@
+<h1> <%= @section.name %> </h1>
+
+<ul>
+  <% @section.lessons.each do |lesson| %>
+    <li> <%= link_to lesson.name, lesson_path(lesson) %> </li>
+  <% end %>
+</ul>
+
+<%= link_to "Edit", edit_section_path(@section) %>
+<p><%= link_to "Delete", section_path(@section),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
+
+<p> <%= link_to "All Lessons", sections_path %> </p>
