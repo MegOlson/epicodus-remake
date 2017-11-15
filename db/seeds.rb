@@ -1,7 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+Chapter.destroy_all
+Section.destroy_all
+Lesson.destroy_all
+
+10.times do |index|
+  Chapter.create!(name: Faker::Coffee.blend_name).sections.create!(name: Faker::HarryPotter.quote,
+                    chapter_id: Faker::Number.between(1, 10)).lessons.create!(name: Faker::HeyArnold.character,
+                    content: Faker::HeyArnold.quote,
+                    section_id: Faker::Number.between(1,10),
+                    number: Faker::Number.between(60,75))
+end
+
+p "Created #{Chapter.count} chapters"
+p "Created #{Section.count} sections"
+p "Created #{Lesson.count} lessons"
+
+
+
+
+# 10.times do |index|
+#   Section.create!(name: Faker::HarryPotter.quote,
+#                     chapter_id: Faker::Number.between(1, 10))
+# end
 #
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
